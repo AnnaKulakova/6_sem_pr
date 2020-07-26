@@ -1,0 +1,60 @@
+openapi: 3.0.0
+info:
+  title: 6 task
+  description: Anna Kulakova Api
+  version: 1.0.0
+
+paths:
+  /api:
+    post:
+      parameters:
+        - name: req
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: add
+        - name: var_name
+          in: query
+          description: variable name
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: value
+          in: query
+          description: begin var name
+          style: form
+          explode: true
+          schema:
+            type: number
+        - name: sleep_time
+          in: query
+          description: time to sleep
+          style: form
+          explode: true
+          schema:
+            type: number
+
+
+      responses:
+        "200":
+          description: returns tru e or fals e
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resp'
+
+components:
+  schemas:
+    Resp:
+      type: object
+      properties:
+        status:
+          type: string
+        desc:
+          type: object
+          additionalProperties: true
+r
